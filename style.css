@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #1a1a1a;
+  background: #fafafa;
+  line-height: 1.5;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.methodology {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.methodology-toggle {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+}
+
+.methodology-toggle:hover {
+  color: #111;
+}
+
+.methodology-content {
+  padding: 0 1rem 1rem;
+  font-size: 0.875rem;
+  color: #444;
+}
+
+.methodology-content p {
+  margin-bottom: 0.75rem;
+}
+
+.regression-stats {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.8rem;
+  background: #f5f5f5;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.source {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.source a {
+  color: #666;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#search {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  width: 280px;
+}
+
+#search:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.count {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+th {
+  background: #f5f5f5;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #555;
+  border-bottom: 2px solid #e0e0e0;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+th:hover {
+  background: #eee;
+}
+
+th.active {
+  color: #111;
+}
+
+th.sort-asc::after {
+  content: " \25B2";
+  font-size: 0.65rem;
+}
+
+th.sort-desc::after {
+  content: " \25BC";
+  font-size: 0.65rem;
+}
+
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+}
+
+tr:hover td {
+  background: #f8f8ff;
+}
+
+td:first-child {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+td.school-name {
+  font-weight: 500;
+  white-space: normal;
+  min-width: 200px;
+}
+
+td.score {
+  font-weight: 600;
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+.positive {
+  color: #16803c;
+}
+
+.negative {
+  color: #c33;
+}
+
+.neutral {
+  color: #888;
+}
+
+.legend-heading {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.4rem;
+  color: #333;
+}
+
+.legend {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.legend li {
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.legend .badge {
+  margin-right: 0.4rem;
+  margin-left: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.05rem 0.35rem;
+  border-radius: 3px;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+}
+
+.badge-hbcu {
+  background: #e8f0fe;
+  color: #1a4480;
+}
+
+.badge-hsi {
+  background: #fef0e8;
+  color: #804d1a;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+
+  #search {
+    width: 100%;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

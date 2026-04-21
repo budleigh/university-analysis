@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+venv/
+.claude/
+raw_cache.json
+Most-Recent-Cohorts-Institution.csv
+*.csv

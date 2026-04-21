@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Rankings — Performance vs Expectation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>College Rankings</h1>
+    <p class="subtitle">How well does each school perform relative to what you'd expect?</p>
+  </header>
+
+  <main>
+    <section class="methodology">
+      <button class="methodology-toggle" aria-expanded="false">
+        How this works ▸
+      </button>
+      <div class="methodology-content" hidden>
+        <p>
+          Most rankings assign arbitrary weights to dozens of metrics. We use one
+          outcome: <strong>6-year graduation rate</strong>, compared to what a school's
+          incoming students would predict.
+        </p>
+        <p>
+          We fit a multiple regression that predicts graduation rate from three properties
+          of incoming students: median SAT, percentage on Pell grants (low-income proxy),
+          and percentage of first-generation college students. Each school's
+          <strong>performance score</strong> is the gap between its actual graduation rate
+          and the rate predicted for its student profile. A score of
+          <span class="positive">+5.2</span> means the school graduates 5.2 percentage
+          points more students than expected.
+        </p>
+        <p>
+          We control for these incoming-student factors (not school choices like financial
+          aid or class size) so the residual measures what the school adds, not who it
+          admitted. Pell% and first-gen% capture meaningful headwinds — a school serving
+          many low-income, first-generation students that still graduates them well is
+          doing harder work than the raw rates show.
+        </p>
+        <p>
+          Schools included: 4-year, bachelor's-granting, non-profit main campuses (no
+          branch/satellite campuses) with 200+ undergraduates that report all required
+          data fields.
+        </p>
+        <p>
+          <strong>Model fit (R²):</strong> R² is the share of variation in graduation
+          rates that the model explains from incoming-student data. Our model has
+          R² ≈ <span id="r-squared-inline">…</span>, meaning roughly that fraction of
+          why schools differ in graduation rates is accounted for by SAT, Pell%, and
+          first-gen%. The rest — the part that produces each school's score — reflects
+          a mix of genuine school effectiveness and factors we don't control for
+          (financial aid generosity, support programs, major mix, regional economy,
+          cohort-to-cohort noise). Treat the score as a meaningful signal but not
+          a precise verdict.
+        </p>
+        <div class="regression-stats" id="regression-stats"></div>
+        <h3 class="legend-heading">Badge key</h3>
+        <ul class="legend">
+          <li><span class="badge badge-hbcu">HBCU</span> Historically Black College or University — institutions established before 1964 with the principal mission of educating Black Americans.</li>
+          <li><span class="badge badge-hsi">HSI</span> Hispanic-Serving Institution — accredited, degree-granting institutions with at least 25% full-time-equivalent Hispanic undergraduate enrollment.</li>
+        </ul>
+        <p class="source">
+          Data: <a href="https://collegescorecard.ed.gov/">U.S. Department of Education College Scorecard</a>
+          (Most Recent Cohorts, Institution-Level)
+        </p>
+      </div>
+    </section>
+
+    <div class="controls">
+      <input type="text" id="search" placeholder="Search schools..." aria-label="Search schools">
+      <span class="count" id="count"></span>
+    </div>
+
+    <div class="table-wrap">
+      <table id="rankings">
+        <thead>
+          <tr>
+            <th data-sort="rank" class="sort-asc active">#</th>
+            <th data-sort="name">School</th>
+            <th data-sort="state">State</th>
+            <th data-sort="type">Type</th>
+            <th data-sort="enrollment">Enrollment</th>
+            <th data-sort="median_sat">Median SAT</th>
+            <th data-sort="pell_pct">Pell %</th>
+            <th data-sort="first_gen_pct">1st Gen %</th>
+            <th data-sort="graduation_rate">Grad Rate</th>
+            <th data-sort="expected_graduation_rate">Expected</th>
+            <th data-sort="performance_score">Score</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
